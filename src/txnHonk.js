@@ -1,13 +1,13 @@
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
-const tokenType = process.env.TOKENTYPE;
-const tokenDecimalPlaces = process.env.DECIMALPLACES;
+const tokenType = integer;
+const tokenDecimalPlaces = 0;
 
 /** Searching for new deposits
  * @param {Object} trx - transaction object
  */
-module.exports.transactionHandler = async trx => {
+module.exports.txnHonk = async trx => {
   if (trx.type === "mempool") {
     const txData = trx.data[0];
     if (txData.token.transactionType === "SEND") {
