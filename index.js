@@ -10,7 +10,7 @@ const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkId } }
 
 let honkURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(honkQuery));
 
-const honkSocket = new EventSource(url);
+const honkSocket = new EventSource(honkURL);
 honkSocket.onmessage = function(event) { console.log("honkSocket connected.");
   let honkData = JSON.parse(event.data); console.log(honkData);
   transactionHandler(honkData); };
