@@ -13,31 +13,44 @@ let honkURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(hon
 const honkSocket = new EventSource(honkURL);
 honkSocket.onmessage = function(event) { console.log("honkSocket connected.");
   let honkData = JSON.parse(event.data); console.log(honkData);
-  transactionHandler(honkData); };
+  txnHonk(honkData); };
+//  transactionHandler(honkData); };
 
-const query = {
-  "v": 3,
-  "q": {
-    "find": {
-      "slp.detail.tokenIdHex": tokenId
-    }
-  },
-  "r": {
-    "f":
-      "[ .[] | { valid: .slp.valid, token: .slp.detail, input: .in[0].e.a, blocktime: .blk.t, txid: .tx.h }]"
-  }
-};
+const frogID="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
+const frogQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": frogID } }, 
+  "r": { "f": "[ .[] | { valid: .slp.valid, token: .slp.detail, input: .in[0].e.a, blocktime: .blk.t, txid: .tx.h }]" } };
 
-let url = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(query));
+let frogURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(frogQuery));
 
-const bitsocket = new EventSource(url);
+const frogSocket = new EventSource(frogURL);
+honkSocket.onmessage = function(event) { console.log("frogSocket connected.");
+  let frogData = JSON.parse(event.data); console.log(frogData);
+  txnFrog(frogData); };
 
-bitsocket.onmessage = function(event) {
-  console.log("Socket connected.");
-  data = JSON.parse(event.data);
-  console.log(data);
-  transactionHandler(data);
-};
+
+// const query = {
+//   "v": 3,
+//   "q": {
+//     "find": {
+//       "slp.detail.tokenIdHex": tokenId
+//     }
+//   },
+//   "r": {
+//     "f":
+//       "[ .[] | { valid: .slp.valid, token: .slp.detail, input: .in[0].e.a, blocktime: .blk.t, txid: .tx.h }]"
+//   }
+// };
+
+// let url = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(query));
+
+// const bitsocket = new EventSource(url);
+
+// bitsocket.onmessage = function(event) {
+//   console.log("Socket connected.");
+//   data = JSON.parse(event.data);
+//   console.log(data);
+//   transactionHandler(data);
+// };
 
 // https://slpsocket.fountainhead.cash/s/ewogICJ2IjogMywKICAicSI6IHsKICAgICJmaW5kIjogewogICAgICAic2xwLmRldGFpbC50b2tlbklkSGV4IjogIjI5ZDM1M2EzZDE5Y2RkNzMyNGYxYzE0YjNmZTI4OTI5Mzk3Njg0Mjg2OWZlZDFiZWEzZjk1MTA1NThmNmYwMDYiCiAgICB9CiAgfSwKICAiciI6IHsKICAgICJmIjoKICAgICAgIlsgLltdIHwgeyB2YWxpZDogLnNscC52YWxpZCwgdG9rZW46IC5zbHAuZGV0YWlsLCBpbnB1dDogLmluWzBdLmUuYSwgYmxvY2t0aW1lOiAuYmxrLnQsIHR4aWQ6IC50eC5oIH1dIgogIH0KfQ==
 
