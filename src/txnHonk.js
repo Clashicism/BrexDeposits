@@ -46,7 +46,7 @@ const checkOutput = async (toAddress, amount, txid, inputAddress) => {
   if (toAddressIncludes.Item && amount > 0) {
     let res = "";
     res += `***************************`;
-    res += `\nNew deposit transaction At: ${new Date()}\nFrom: ${inputAddress}`;
+    res += `\nNew HONK deposit transaction At: ${new Date()}\nFrom: ${inputAddress}`;
     res += `\nTo: ${toAddress}\nAmount: ${amount}`;
     res += `\nTransaction ID: ${txid}`;
     res += `\n***************************`;
