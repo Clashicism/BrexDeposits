@@ -1,38 +1,14 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Clashicism 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-Clashicism
-/
-ExoDeposits
-forked from KeithPatrick5/checkDeposits
-0
-03
- Code Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-ExoDeposits/src/txnHonk.js
-@Clashicism Clashicism Update txnHonk.js
-ad2b9ad 20 hours ago
-95 lines (78 sloc)  2.94 KB
-  
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
-const tokenType = integer;
-const tokenDecimalPlaces = 0;
+const tokenType = float;
+const tokenDecimalPlaces = 2;
 
 /** Searching for new deposits
  * @param {Object} trx - transaction object
  */
-module.exports.txnHonk = async trx => {
+module.exports.txnFrog = async trx => {
   if (trx.type === "mempool") {
     const txData = trx.data[0];
     if (txData.token.transactionType === "SEND") {
@@ -71,7 +47,7 @@ const checkOutput = async (toAddress, amount, txid, inputAddress) => {
   if (toAddressIncludes.Item && amount > 0) {
     let res = "";
     res += `***************************`;
-    res += `\nNew HONK deposit transaction At: ${new Date()}\nFrom: ${inputAddress}`;
+    res += `\nNew CyFrog deposit transaction At: ${new Date()}\nFrom: ${inputAddress}`;
     res += `\nTo: ${toAddress}\nAmount: ${amount}`;
     res += `\nTransaction ID: ${txid}`;
     res += `\n***************************`;
@@ -118,15 +94,3 @@ const sum = (val1, val2) => {
   const confVal = Math.pow(10, tokenDecimalPlaces);
   return (confVal * val1 + confVal * val2) / confVal;
 };
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
