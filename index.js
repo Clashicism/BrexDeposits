@@ -5,7 +5,7 @@ const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
 
 const honkID="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
-const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkId } }, 
+const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkID } }, 
   "r": { "f": "[ .[] | { valid: .slp.valid, token: .slp.detail, input: .in[0].e.a, blocktime: .blk.t, txid: .tx.h }]" } };
 
 let honkURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(honkQuery));
