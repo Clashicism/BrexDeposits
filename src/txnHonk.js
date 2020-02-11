@@ -1,7 +1,7 @@
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
-const tokenType = integer;
+const tokenType = "integer";
 const tokenDecimalPlaces = 0;
 
 /** Searching for new deposits
