@@ -1,5 +1,7 @@
 require("dotenv").config();
 const { transactionHandler } = require("./src/transactionHandler");
+const { txnHonk } = require("./src/txnHonk");
+const { txnFrog } = require("./src/txnFrog");
 const EventSource = require("eventsource");
 const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
