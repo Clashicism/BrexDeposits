@@ -2,7 +2,7 @@
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
-const tokenType = float;
+const tokenType = "float";
 const tokenDecimalPlaces = 2;
 
 /** Searching for new deposits
