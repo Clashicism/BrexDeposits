@@ -8,7 +8,6 @@ const tokenId = process.env.TOKENID;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 
-
 let listen_slp = async function () {
     var query = {
         "v": 3,
@@ -18,27 +17,32 @@ let listen_slp = async function () {
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
     socket.onmessage = function(event) {
-        var event = JSON.parse(event)
+        var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
+            console.LOG(event.data[0])
+        }
 
-                console.log(event.data[0].slp.detail.tokenIdHex);
-                
+    }
+}
+socket.onerror = function(err) {
+    console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
+    console.error(err)
+    }
+}
+
+listen_slp();
+
+        //        var event = JSON.parse(event)
+//        if(event.type == 'mempool' && event.data[0].valid) {
+//
+//                console.log(event.data[0].slp.detail.tokenIdHex);
+//                
 //                var supported = ['tokenid1', 'tokenid2'];
 
                 //  if(supported.includes(event.slp.detail.tokenIdHex))
 //  { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
 //    }
 //  };
-
-        }
-    }
-    socket.onerror = function(err) {
-        console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
-        console.error(err)
-    }
-}
-
-listen_slp();
 
 // const honkID="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
 // const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkID } }, 
