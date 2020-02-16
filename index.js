@@ -8,23 +8,53 @@ const tokenId = process.env.TOKENID;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 
+
+let listen_slp = async function () {
+    var query = {
+        "v": 3,
+        "q": {"find": {}},
+        "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
+    }
+ 
+    var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
+ 
+    socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
+    socket.onmessage = function(event) {
+        var event = JSON.parse(event.data)
+        if(event.type == 'mempool' && event.data[0].valid) {
+console.log("quack);
+          //  var supported = ['tokenid1', 'tokenid2'];
+//  if(supported.includes(event.slp.detail.tokenIdHex))
+//  { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
+//    }
+//  };
+
+        }
+    }
+    socket.onerror = function(err) {
+        console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
+        console.error(err)
+    }
+}
+
+
 // const honkID="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
 // const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkID } }, 
 //   "r": { "f": "[ .[] | { valid: .slp.valid, token: .slp.detail, input: .in[0].e.a, blocktime: .blk.t, txid: .tx.h }]" } };
 // let honkURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(honkQuery));
 
 
-const slpQuery = { "v": 3, "q": {"find": {}}, "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"} }
-let slpURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(slpQuery));
+// const slpQuery = { "v": 3, "q": {"find": {}}, "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"} }
+// let slpURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(slpQuery));
 
-const slpSocket = new EventSource(slpURL);
-slpSocket.onmessage = function(event) { console.log("slpSocket connected.");
-  let slpData = JSON.parse(event.data); console.log(slpData); //  txnHonk(honkData); 
-  var supported = ['tokenid1', 'tokenid2'];
-  if(supported.includes(event.slp.detail.tokenIdHex))
-  { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
-    }
-  };
+// const slpSocket = new EventSource(slpURL);
+// slpSocket.onmessage = function(event) { console.log("slpSocket connected.");
+//  let slpData = JSON.parse(event.data); console.log(slpData); //  txnHonk(honkData); 
+//  var supported = ['tokenid1', 'tokenid2'];
+//  if(supported.includes(event.slp.detail.tokenIdHex))
+//  { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
+//    }
+//  };
 
 //7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1                
 // const honkSocket = new EventSource(honkURL);
