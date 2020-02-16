@@ -22,7 +22,7 @@ let listen_slp = async function () {
     socket.onmessage = function(event) {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
-console.log("quack);
+console.log("quack");
           //  var supported = ['tokenid1', 'tokenid2'];
 //  if(supported.includes(event.slp.detail.tokenIdHex))
 //  { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
