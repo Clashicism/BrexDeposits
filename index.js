@@ -14,8 +14,7 @@ var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e"
 // let honkURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(honkQuery));
 
 
-const slpQuery = { "v": 3, "q": {"find": {}}, "r": {"f": "[ .[] |
-  { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"} }
+const slpQuery = { "v": 3, "q": {"find": {}}, "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"} }
 let slpURL = "https://slpsocket.fountainhead.cash/s/" + btoa(JSON.stringify(slpQuery));
 
 const slpSocket = new EventSource(slpURL);
