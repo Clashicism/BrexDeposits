@@ -43,6 +43,7 @@ console.log("quack\n");
         console.log("end\n");
 }
 
+listen_slp();
 
 // const honkID="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
 // const honkQuery = { "v": 3, "q": { "find": { "slp.detail.tokenIdHex": honkID } }, 
