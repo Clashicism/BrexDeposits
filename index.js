@@ -22,7 +22,8 @@ slpSocket.onmessage = function(event) { console.log("slpSocket connected.");
   let slpData = JSON.parse(event.data); console.log(slpData); //  txnHonk(honkData); 
   };
 var supported = ['tokenid1', 'tokenid2']
-if(supported.includes(event.slp.detail.tokenIdHex) { //check if event.slp.detail.outputs contains one of your addresses, credit deposit
+if(supported.includes(event.slp.detail.tokenIdHex))
+{ //check if event.slp.detail.outputs contains one of your addresses, credit deposit
   }
 //7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1                
 // const honkSocket = new EventSource(honkURL);
