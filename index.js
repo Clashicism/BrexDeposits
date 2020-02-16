@@ -21,7 +21,7 @@ let listen_slp = async function () {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
 
-                console.log(event.slp.detail.tokenIdHex);
+                console.log(event.data[0].slp.detail.tokenIdHex);
                 
 //                var supported = ['tokenid1', 'tokenid2'];
 
