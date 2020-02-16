@@ -18,7 +18,7 @@ let listen_slp = async function () {
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
     socket.onmessage = function(event) {
-        var event = JSON.parse(event.data[0])
+        var event = JSON.parse(event)
         if(event.type == 'mempool' && event.data[0].valid) {
 
                 console.log(event.data[0].slp.detail.tokenIdHex);
