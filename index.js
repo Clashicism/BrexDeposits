@@ -8,6 +8,7 @@ const tokenId = process.env.TOKENID;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 
+        console.log("start\n");
 
 let listen_slp = async function () {
     var query = {
@@ -17,6 +18,7 @@ let listen_slp = async function () {
     }
  
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
+        console.log("opening socket\n");
  
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
     socket.onmessage = function(event) {
@@ -31,11 +33,14 @@ console.log("quack\n");
 //  };
 
         }
+        console.log("closing socket\n");
     }
+        console.log("closed socket\n");
     socket.onerror = function(err) {
         console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
         console.error(err)
     }
+        console.log("end\n");
 }
 
 
