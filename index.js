@@ -23,13 +23,12 @@ let listen_slp = async function () {
         }
 
     }
-}
+
 socket.onerror = function(err) {
     console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
     console.error(err)
     }
 }
-
 listen_slp();
 
         //        var event = JSON.parse(event)
