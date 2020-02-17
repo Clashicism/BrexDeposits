@@ -5,6 +5,7 @@ const { txnFrog } = require("./src/txnFrog");
 const EventSource = require("eventsource");
 const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
+var amount=0;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 
@@ -53,7 +54,8 @@ let listen_slp = async function () {
         if(event.type == 'mempool' && event.data[0].valid) {
  //           console.log(event.data[0]);
   //          console.log(event.data[0].token);
-               console.log(event.data[0].amount.toString());
+            amount=event.data[0].amount+0;
+            console.log(amount.toString());
 
 //            console.log(event.data[0].amount + " " + tokens[event.data[0].token]);
             console.log(tokens[event.data[0].token]);
