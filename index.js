@@ -55,7 +55,7 @@ let listen_slp = async function () {
  //           console.log(event.data[0]);
   //          console.log(event.data[0].token);
             amount=event.data[0].amount+0;
-            console.log(amount.toString());
+            console.log(amount);
 
 //            console.log(event.data[0].amount + " " + tokens[event.data[0].token]);
             console.log(tokens[event.data[0].token]);
