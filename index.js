@@ -20,6 +20,8 @@ let listen_slp = async function () {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
             console.log(event.data[0]);
+            console.log(event.data[0].token);
+
         }
 
     }
