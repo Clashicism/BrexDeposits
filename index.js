@@ -8,7 +8,7 @@ const tokenId = process.env.TOKENID;
 var amount=0;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
-var decimals["0"]=0;
+var decimals = ["0","1"];
 tokens["CyFrog"]="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
 tokens["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e"]="CyFrog";
     decimals["CyFrog"]=2;
