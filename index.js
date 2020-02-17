@@ -7,6 +7,17 @@ const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
+tokens["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e"]="CyFrog";
+tokens["CyFrog"]="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
+tokens["Honk"]="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
+tokens["7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"]="Honk";
+// tokens[""]="";
+
+//tokens.c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e="frog";
+//tokens.7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1="honk";
+//tokens.frog="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
+//tokens.honk="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
+//var tokenName="";
 
 let listen_slp = async function () {
     var query = {
@@ -21,7 +32,8 @@ let listen_slp = async function () {
         if(event.type == 'mempool' && event.data[0].valid) {
             console.log(event.data[0]);
             console.log(event.data[0].token);
-
+            console.log(tokens[event.data[0].token]);
+            
         }
 
     }
