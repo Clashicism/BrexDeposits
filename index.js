@@ -19,7 +19,7 @@ let listen_slp = async function () {
     socket.onmessage = function(event) {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
-            console.LOG(event.data[0])
+            console.log(event.data[0]);
         }
 
     }
