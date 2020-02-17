@@ -5,7 +5,7 @@ const { txnFrog } = require("./src/txnFrog");
 const EventSource = require("eventsource");
 const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
-var amount=0;
+var amount=0; var exp=0;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 var decimals = ["0","1"];
@@ -72,8 +72,8 @@ let listen_slp = async function () {
 //            console.log(event.data[0].amount + " " + tokens[event.data[0].token]);
             console.log(tokens[event.data[0].token]);
             console.log(decimals[tokens[event.data[0].token]]);
-            console.log(10**-(decimals[tokens[event.data[0].token]]));
-            amount=event.data[0].out[0].amount*(decimals[tokens[event.data[0].token]]);
+            exp=10**-(decimals[tokens[event.data[0].token]]));
+            amount=event.data[0].out[0].amount*exp;
             console.log(amount);
             
         }
