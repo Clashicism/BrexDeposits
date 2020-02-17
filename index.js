@@ -7,10 +7,31 @@ const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
 const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
-tokens["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e"]="CyFrog";
+
 tokens["CyFrog"]="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
+tokens["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e"]="CyFrog";
+
 tokens["Honk"]="7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1";
 tokens["7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"]="Honk";
+
+tokens["Sour"]="6448381f9649ecacd8c30189cfbfee71a91b6b9738ea494fe33f8b8b51cbfca0";
+tokens["6448381f9649ecacd8c30189cfbfee71a91b6b9738ea494fe33f8b8b51cbfca0"]="Sour";
+
+tokens["AUDC"]="f05faf13a29c7f5e54ab921750aafb6afaa953db863bd2cf432e918661d4132f";
+tokens["f05faf13a29c7f5e54ab921750aafb6afaa953db863bd2cf432e918661d4132f"]="AUDC";
+
+tokens["Spice"]="4de69e374a8ed21cbddd47f2338cc0f479dc58daa2bbe11cd604ca488eca0ddf";
+tokens["4de69e374a8ed21cbddd47f2338cc0f479dc58daa2bbe11cd604ca488eca0ddf"]="Spice";
+
+tokens["RNEW"]="57b76544521b5ee8e2e918cda81a5faf276d38acf96fe20475e1359077850d8b";
+tokens["57b76544521b5ee8e2e918cda81a5faf276d38acf96fe20475e1359077850d8b"]="RNEW";
+
+tokens["Mint"]="1a1fd545b922c8ee4ecd89bc312904f4e3ba4cf7850141066ad3e3f281668188";
+tokens["1a1fd545b922c8ee4ecd89bc312904f4e3ba4cf7850141066ad3e3f281668188"]="Mint";
+
+tokens["SBS"]="419ce621b69abf5877141135ae7c3f1f51ed311888c004df3c28aaae2198242d";
+tokens["419ce621b69abf5877141135ae7c3f1f51ed311888c004df3c28aaae2198242d"]="SBS";
+
 // tokens[""]="";
 
 //tokens.c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e="frog";
