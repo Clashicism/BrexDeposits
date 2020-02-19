@@ -73,8 +73,12 @@ let listen_slp = async function () {
             exp=10**-(decimals[tokens[event.data[0].token]]);
             amount=event.data[0].out[0].amount*exp;
             console.log(amount);
- transactionHandler(event); };
+ transactionHandler(event);
+           
 
+        }
+
+    }
             // honkSocket.onmessage = function(event) { console.log("honkSocket connected.");
 //  let honkData = JSON.parse(event.data); console.log(honkData);
 //  txnHonk(honkData); };
@@ -88,10 +92,6 @@ let listen_slp = async function () {
 //   console.log(data);
 //   transactionHandler(data);
 // };
-
-        }
-
-    }
 
 socket.onerror = function(err) {
     console.error('[Error SLPStream at ' + (new Date().getTime()) + ']:')
