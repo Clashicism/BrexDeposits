@@ -67,15 +67,15 @@ let listen_slp = async function () {
             amount=event.data[0].out[0].amount;
             exp=10**-(decimals[tokens[event.data[0].token]]);
             amount=event.data[0].out[0].amount*exp;
-         console.log(event.data[0]);
+  //       console.log(event.data[0]);
 
             console.log("From");
-            console.log(tokens[event.data[0].in]);
+            console.log(event.data[0].in);
             console.log("To");
-            console.log(tokens[event.data[0].out[0].address]);
-            console.log(tokens[event.data[0].token]);
+            console.log(event.data[0].out[0].address);
             console.log(amount);
- transactionHandler(event);
+            console.log(tokens[event.data[0].token]);
+// transactionHandler(event);
            
 
         }
