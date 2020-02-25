@@ -77,7 +77,7 @@ const updateSession = async (userId, trx, amount) => {
   session.wallet.transferedDeposits = deposits;
 
 //  parse
- let balance=session.wallet.balances;
+// let balance=session.wallet.balances;
 // console.log(balances);
   
   //
