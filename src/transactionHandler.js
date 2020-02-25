@@ -78,7 +78,7 @@ const updateSession = async (userId, trx, amount) => {
 
 //  parse
  let balance=session.wallet.balances;
-console.log(balances);
+// console.log(balances);
   
   //
 //  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
