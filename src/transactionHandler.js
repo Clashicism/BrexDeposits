@@ -1,3 +1,27 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Clashicism 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+KeithPatrick5
+/
+checkDeposits
+2
+13
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+checkDeposits/src/transactionHandler.js
+@pytour pytour fix logs
+907685a on Dec 20, 2019
+95 lines (78 sloc)  2.99 KB
+  
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
@@ -76,24 +100,6 @@ const updateSession = async (userId, trx, amount) => {
   session.wallet.honkPoints = sum(session.wallet.honkPoints, amount);
   session.wallet.transferedDeposits = deposits;
 
-//  parse
-// let balance=session.wallet.balances;
-// console.log(balances);
-  
-  //
-//  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
-//  for(i=1;i<pairs.length;i++) {
-//    pair=pairs[i]; [key,value]=pair.split("=");
-//    key[i]=k; value[i]=v;
-//  }
-//  for(i=1;i<pairs.length;i++) {
-//
-//    let token = something.sometokenid;
-//  if(key[i])=token); value[i]+=amount;
-//  }
-//  
-//      session.wallet.balances = balances;
-
   saveSession(userId, session);
 };
 
@@ -111,3 +117,34 @@ const sum = (val1, val2) => {
   const confVal = Math.pow(10, tokenDecimalPlaces);
   return (confVal * val1 + confVal * val2) / confVal;
 };
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
+
+//  parse
+// let balance=session.wallet.balances;
+// console.log(balances);
+  
+  //
+//  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
+//  for(i=1;i<pairs.length;i++) {
+//    pair=pairs[i]; [key,value]=pair.split("=");
+//    key[i]=k; value[i]=v;
+//  }
+//  for(i=1;i<pairs.length;i++) {
+//
+//    let token = something.sometokenid;
+//  if(key[i])=token); value[i]+=amount;
+//  }
+//  
+//      session.wallet.balances = balances;
