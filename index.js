@@ -58,15 +58,15 @@ let listen_slp = async function () {
     socket.onmessage = function(event) {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
-            amount=event.data[0].out[0].amount;
-            exp=10**-(decimals[tokens[event.data[0].token]]);
-            amount=event.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
-            console.log("From");
-            console.log(event.data[0].in);
-            console.log("To");
-            console.log(event.data[0].out[0].address);
-            console.log(amount);
-            console.log(tokens[event.data[0].token]);
+ //           amount=event.data[0].out[0].amount;
+ //           exp=10**-(decimals[tokens[event.data[0].token]]);
+ //           amount=event.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
+            console.log("New txn");
+ //           console.log(event.data[0].in);
+ //           console.log("To");
+ //           console.log(event.data[0].out[0].address);
+ //           console.log(amount);
+ //           console.log(tokens[event.data[0].token]);
  transactionHandler(event);
         }
     }
