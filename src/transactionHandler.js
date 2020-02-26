@@ -1,27 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Clashicism 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-KeithPatrick5
-/
-checkDeposits
-2
-13
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-checkDeposits/src/transactionHandler.js
-@pytour pytour fix logs
-907685a on Dec 20, 2019
-95 lines (78 sloc)  2.99 KB
-  
 const { getDepositsTable } = require("./db/getAddrData");
 const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
