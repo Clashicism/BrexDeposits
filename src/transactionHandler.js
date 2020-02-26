@@ -93,21 +93,6 @@ const sum = (val1, val2) => {
   const confVal = Math.pow(10, tokenDecimalPlaces);
   return (confVal * val1 + confVal * val2) / confVal;
 };
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-
-
-//  parse
 // let balance=session.wallet.balances;
 // console.log(balances);
   
