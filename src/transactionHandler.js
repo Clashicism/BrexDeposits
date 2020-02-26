@@ -94,7 +94,7 @@ module.exports.transactionHandler = async trx => {
   if (trx.type === "mempool") {
           let txnamount=trx.data[0].out[0].amount;
             let exp=10**-(decimals[tokens[trx.data[0].token]]);
-            let txnamount=trx.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
+            txnamount=trx.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
             console.log("Sending");
             console.log(trx.data[0].in);
             console.log("Receiving");
