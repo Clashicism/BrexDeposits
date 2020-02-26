@@ -60,7 +60,8 @@ let listen_slp = async function () {
         if(event.type == 'mempool' && event.data[0].valid) {
  //           amount=event.data[0].out[0].amount;
  //           exp=10**-(decimals[tokens[event.data[0].token]]);
- //           amount=event.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
+ //           amount=event.data[0].out[0].amount*exp;  //       
+            console.log(event.data[0]);
             console.log("New txn");
  //           console.log(event.data[0].in);
  //           console.log("To");
