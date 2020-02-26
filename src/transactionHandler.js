@@ -93,7 +93,7 @@ tokens["0f3f223902c44dc2bee6d3f77d565904d8501affba5ee0c56f7b32e8080ce14b"]="Drop
 module.exports.transactionHandler = async trx => {
   if (trx.type === "mempool") {
           let txnamount=trx.data[0].out[0].amount;
-            exp=10**-(decimals[tokens[trx.data[0].token]]);
+            let exp=10**-(decimals[tokens[trx.data[0].token]]);
             txnamount=trx.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
             console.log("Sending");
             console.log(trx.data[0].in);
