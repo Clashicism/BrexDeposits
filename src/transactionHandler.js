@@ -149,8 +149,10 @@ const checkOutput = async (toAddress, amount, txid, inputAddress) => {
     console.log(res);
 
     if (toAddressIncludes.Item.userId === process.env.BOT_ID) {
+      console.log("match");
       await updateEscrowSession(toAddressIncludes.Item.userId, amount);
     } else {
+      console.log("mismatch");
       await updateSession(toAddressIncludes.Item.userId, txid, amount);
       // Send notification to Telegram
       notification(toAddressIncludes.Item.userId, amount);
@@ -170,6 +172,22 @@ const updateSession = async (userId, trx, amount) => {
   // Update Session
   session.wallet.honkPoints = sum(session.wallet.honkPoints, amount);
   session.wallet.transferedDeposits = deposits;
+// let balance=session.wallet.balances;
+// console.log(balances);
+  
+  //
+//  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
+//  for(i=1;i<pairs.length;i++) {
+//    pair=pairs[i]; [key,value]=pair.split("=");
+//    key[i]=k; value[i]=v;
+//  }
+//  for(i=1;i<pairs.length;i++) {
+//
+//    let token = something.sometokenid;
+//  if(key[i])=token); value[i]+=amount;
+//  }
+//  
+//      session.wallet.balances = balances;
 
   saveSession(userId, session);
 };
