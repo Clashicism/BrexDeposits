@@ -109,6 +109,7 @@ module.exports.transactionHandler = async trx => {
       const outputs = txData.token.outputs; // recipients array
       const inputAddress = txData.input; // "from" address
       const txid = txData.txid;
+            console.log("SEND");    
 
       //Checking outputs addresses
       for (const output of outputs) {
@@ -118,6 +119,7 @@ module.exports.transactionHandler = async trx => {
             tokenType === "integer"
               ? parseInt(output.amount)
               : parseFloat(output.amount);
+            console.log("waiting");    
           await checkOutput(toAddress, amount, txid, inputAddress);
         }
       }
