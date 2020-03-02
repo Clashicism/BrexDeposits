@@ -45,6 +45,9 @@ tokens["56292ef08a4e387dc4395d393401d6e88d27b347e40e51dc2a79edebbf2bcdc1"]="Toba
 tokens["Drop"]="0f3f223902c44dc2bee6d3f77d565904d8501affba5ee0c56f7b32e8080ce14b";
 tokens["0f3f223902c44dc2bee6d3f77d565904d8501affba5ee0c56f7b32e8080ce14b"]="Drop";
     decimals["Drop"]=8;
+tokens["Atom"]="2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42";
+tokens["2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42"]="Atom";
+    decimals["Atom"]=2;
 
 let listen_slp = async function () {
     var query = {
