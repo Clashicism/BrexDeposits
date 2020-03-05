@@ -52,8 +52,9 @@ tokens["2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42"]="Atom
 let listen_slp = async function () {
     var query = {
         "v": 3,
-        "q": {"find": {}},
-        "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
+        "q": {"find": {}}
+        // ,
+        // "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
     }
     
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
