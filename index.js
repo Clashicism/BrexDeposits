@@ -1,12 +1,10 @@
 require("dotenv").config();
 const { transactionHandler } = require("./src/transactionHandler");
-const { txnHonk } = require("./src/txnHonk");
-const { txnFrog } = require("./src/txnFrog");
 const EventSource = require("eventsource");
 const btoa = require("btoa");
 const tokenId = process.env.TOKENID;
+
 var amount=0; var exp=0;
-const frog=0; const honk=1; 
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e","7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
 var decimals = ["0","1"];
 tokens["CyFrog"]="c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e";
@@ -54,28 +52,15 @@ let listen_slp = async function () {
         "v": 3,
         "q": {"find": {}}
     }
-        // ,
-        // "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
-    
+
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
     socket.onmessage = function(event) {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].valid) {
- //           amount=event.data[0].out[0].amount;
- //           exp=10**-(decimals[tokens[event.data[0].token]]);
- //           amount=event.data[0].out[0].amount*exp;  //       
             console.log("New "+event.token+" txn");
- //           console.log(event.data[0].in);
             console.log(JSON.stringify(event, null, 2));
- 
-
- //          console.log(event.data[0]);
- //           console.log("To");
- //           console.log(event.data[0].out[0].address);
- //           console.log(amount);
- //           console.log(tokens[event.data[0].token]);
- transactionHandler(event);
+            transactionHandler(event);
         }
     }
 }
