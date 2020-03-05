@@ -106,6 +106,7 @@ module.exports.transactionHandler = async trx => {
             console.log(trx.data[0].token);    
             console.log(trx.data[0].token.tokenIdHex);    
             console.log(tokens[trx.data[0].token]);    
+            console.log(trx);    
     
     const txData = trx.data[0];
 //    if (txData.token.transactionType === "SEND") {
