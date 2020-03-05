@@ -53,9 +53,9 @@ let listen_slp = async function () {
     var query = {
         "v": 3,
         "q": {"find": {}}
+    }
         // ,
         // "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
-    }
     
     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
