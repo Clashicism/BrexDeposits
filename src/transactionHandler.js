@@ -109,8 +109,8 @@ module.exports.transactionHandler = async trx => {
             console.log(trx.toString());    
     
     const txData = trx.data[0];
-//    if (txData.token.transactionType === "SEND") {
-    if (txData.valid === "true") {
+    if (txData.token.transactionType === "SEND") {
+//    if (txData.valid === "true") {
       const outputs = txData.token.outputs; // recipients array
       const inputAddress = txData.input; // "from" address
       const txid = txData.txid;
