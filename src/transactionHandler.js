@@ -3,9 +3,7 @@ const { getSession, saveSession } = require("./db/dynamoDB");
 const { notification } = require("./notification/notification");
 const tokenType = process.env.TOKENTYPE;
 const tokenDecimalPlaces = process.env.DECIMALPLACES;
-
-// var amount=0; var exp=0;
-// const frog=0; const honk=1; 
+ 
 var decimals = ["0","1"];
 var tokens = ["c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e",
               "7f8889682d57369ed0e32336f8b7e0ffec625a35cca183f4e81fde4e71a538a1"];
@@ -49,47 +47,6 @@ tokens["Atom"]="2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42
 tokens["2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42"]="Atom";
     decimals["Atom"]=2;
 
-// let listen_slp = async function () {
-//     var query = {
-//         "v": 3,
-//         "q": {"find": {}},
-//         "r": {"f": "[ .[] | { txid: .tx.h, out: .slp.detail.outputs?, 
-// in: .in[0].e.a, token: .slp.detail.tokenIdHex, valid: .slp.valid }]"}
-//     }
-//     var socket = new EventSource('https://slpstream.fountainhead.cash/s/'+btoa(JSON.stringify(query)))
-//     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
-//     socket.onmessage = function(event) {
-//         var event = JSON.parse(event.data)
-//         if(event.type == 'mempool' && event.data[0].valid) {
-
-// let balance=session.wallet.balances;
-// console.log(balances);
-  
-  //
-//  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
-//  for(i=1;i<pairs.length;i++) {
-//    pair=pairs[i]; [key,value]=pair.split("=");
-//    key[i]=k; value[i]=v;
-//  }
-//  for(i=1;i<pairs.length;i++) {
-//
-//    let token = something.sometokenid;
-//  if(key[i])=token); value[i]+=amount;
-//  }
-//  
-//      session.wallet.balances = balances;
-
-//            amount=event.data[0].out[0].amount;
-//            exp=10**-(decimals[tokens[event.data[0].token]]);
-//            amount=event.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
-//            console.log("From");
-//            console.log(event.data[0].in);
-//            console.log("To");
-//            console.log(event.data[0].out[0].address);
-//            console.log(amount);
-//            console.log(tokens[event.data[0].token]);
-//         }
-//     }      
 /** Searching for new deposits
  * @param {Object} trx - transaction object
  */
@@ -109,8 +66,7 @@ module.exports.transactionHandler = async trx => {
             console.log(trx.toString());    
     
     const txData = trx.data[0];
-//    if (txData.token.transactionType === "SEND") {
-    if (txData.valid === "true") {
+    if (txData.token.transactionType === "SEND") {
       const outputs = txData.token.outputs; // recipients array
       const inputAddress = txData.input; // "from" address
       const txid = txData.txid;
@@ -179,22 +135,6 @@ const updateSession = async (userId, trx, amount) => {
   // Update Session
   session.wallet.honkPoints = sum(session.wallet.honkPoints, amount);
   session.wallet.transferedDeposits = deposits;
-// let balance=session.wallet.balances;
-// console.log(balances);
-  
-  //
-//  let pairs=balances.split("&"); let pair=""; let i=0; let key[0]="bch"; let value[0]=""; let k=""; let v="";
-//  for(i=1;i<pairs.length;i++) {
-//    pair=pairs[i]; [key,value]=pair.split("=");
-//    key[i]=k; value[i]=v;
-//  }
-//  for(i=1;i<pairs.length;i++) {
-//
-//    let token = something.sometokenid;
-//  if(key[i])=token); value[i]+=amount;
-//  }
-//  
-//      session.wallet.balances = balances;
 
   saveSession(userId, session);
 };
