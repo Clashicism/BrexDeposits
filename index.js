@@ -57,7 +57,7 @@ let listen_slp = async function () {
     socket.onopen = function() {console.log('Connected to SLPStream at ' + (new Date().getTime()))}
     socket.onmessage = function(event) {
         var event = JSON.parse(event.data)
-        if(event.type == 'mempool' && event.data[0].valid) {
+        if(event.type == 'mempool') { // && event.data[0].valid) {
             console.log("New "+event.token+" txn");
             console.log(JSON.stringify(event, null, 2));
             transactionHandler(event);
