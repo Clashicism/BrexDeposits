@@ -61,7 +61,7 @@ module.exports.transactionHandler = async trx => {
             console.log(trx.data[0].out[0].address);
             console.log(txnamount);
             console.log(trx.data[0].token);    
-            console.log(trx.data[0].token.tokenIdHex);    
+            // console.log(trx.data[0].token.tokenIdHex);    
             console.log(tokens[trx.data[0].token]);    
             console.log(trx.toString());    
     
