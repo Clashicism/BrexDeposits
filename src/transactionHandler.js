@@ -81,6 +81,8 @@ module.exports.transactionHandler = async trx => {
               ? parseInt(output.amount)
               : parseFloat(output.amount);
             console.log("waiting");    
+            console.log(tokenType);    
+            console.log(amount);    
           await checkOutput(toAddress, amount, txid, inputAddress);
         }
       }
