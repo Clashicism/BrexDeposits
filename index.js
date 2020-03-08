@@ -59,7 +59,7 @@ let listen_slp = async function () {
         var event = JSON.parse(event.data)
         if(event.type == 'mempool' && event.data[0].slp.valid) {
             console.log("New "+event.data[0].slp.detail+" txn");
-            console.log(JSON.stringify(event, null, 2));
+//            console.log(JSON.stringify(event, null, 2));
             transactionHandler(event);
         }
     }
