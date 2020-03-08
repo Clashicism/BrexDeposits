@@ -63,7 +63,7 @@ module.exports.transactionHandler = async trx => {
             console.log(trx.data[0].slp.detail);    
             // console.log(trx.data[0].slp.detail.tokenIdHex);    
             console.log(tokens[trx.data[0].slp.detail]);    
-            console.log(trx.toString());    
+//            console.log(trx.toString());    
     
     const txData = trx.data[0];
     if (txData.slp.detail.transactionType === "SEND") {
