@@ -56,7 +56,7 @@ module.exports.transactionHandler = async trx => {
 //    let txnamount=trx.data[0].out[0].amount;
     let exp=10**-(decimals[tokens[trx.data[0].slp.detail]]);
     let txnamount=trx.data[0].out[0].amount*exp;
-    console.log(tokens[trx.data[0].slp.detail]);
+    console.log(trx.data[0].slp.detail);
     console.log(trx.data[0].out[0].address);
     console.log(txnamount);
     console.log(trx.data[0].slp.detail);    
