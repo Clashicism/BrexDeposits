@@ -60,6 +60,7 @@ module.exports.transactionHandler = async trx => {
     console.log(decimals[tokens[trx.data[0].slp.detail.tokenIdHex]]);    
     console.log(trx.data[0].out[0].address);
     console.log(txnamount);
+    console.log(exp);
     
     if (txData.slp.detail.transactionType === "SEND") {
       const outputs = txData.slp.detail.outputs; // recipients array
