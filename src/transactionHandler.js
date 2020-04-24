@@ -52,26 +52,19 @@ tokens["2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42"]="Atom
  */
 module.exports.transactionHandler = async trx => {
   if (trx.type === "mempool") {
-          let txnamount=trx.data[0].out[0].amount;
-            let exp=10**-(decimals[tokens[trx.data[0].slp.detail]]);
-            txnamount=trx.data[0].out[0].amount*exp;  //       console.log(event.data[0]);
-    //        console.log("Sending");
-//            console.log(trx.data[0].in);
-  //          console.log("Receiving");
-            console.log(trx.data[0].out[0].address);
-            console.log(txnamount);
-            console.log(trx.data[0].slp.detail);    
-            // console.log(trx.data[0].slp.detail.tokenIdHex);    
-   //         console.log(tokens[trx.data[0].slp.detail]);    
-//            console.log(trx.toString());    
-    
     const txData = trx.data[0];
+//    let txnamount=trx.data[0].out[0].amount;
+    let exp=10**-(decimals[tokens[trx.data[0].slp.detail]]);
+    let txnamount=trx.data[0].out[0].amount*exp;
+    console.log(tokens[trx.data[0].slp.detail]]);
+    console.log(trx.data[0].out[0].address);
+    console.log(txnamount);
+    console.log(trx.data[0].slp.detail);    
+    
     if (txData.slp.detail.transactionType === "SEND") {
       const outputs = txData.slp.detail.outputs; // recipients array
       const inputAddress = txData.input; // "from" address
       const txid = txData.txid;
-     //       console.log("SEND");    
-
       //Checking outputs addresses
       for (const output of outputs) {
         if (output.address !== inputAddress) {
