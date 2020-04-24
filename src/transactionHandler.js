@@ -55,11 +55,11 @@ module.exports.transactionHandler = async trx => {
     const txData = trx.data[0];
 //    let txnamount=trx.data[0].out[0].amount;
     let exp=10**-(decimals[tokens[trx.data[0].slp.detail.tokenIdHex]]);
-    let txnamount=trx.data[0].out[0].amount;
+    let txnamount=parsefloat(exp)*parsefloat(trx.data[0].out[0].amount);
     console.log(tokens[trx.data[0].slp.detail.tokenIdHex]);
     console.log(decimals[tokens[trx.data[0].slp.detail.tokenIdHex]]);    
     console.log(trx.data[0].out[0].address);
-    console.log(txnamount*exp);
+    console.log(txnamount);
     console.log(exp);
     
     if (txData.slp.detail.transactionType === "SEND") {
