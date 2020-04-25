@@ -46,6 +46,10 @@ tokens["0f3f223902c44dc2bee6d3f77d565904d8501affba5ee0c56f7b32e8080ce14b"]="Drop
 tokens["Atom"]="2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42";
 tokens["2b51ebf985367e6598bf01df27d6da6ea455dbaa8bea6b71aae57e50edd45f42"]="Atom";
     decimals["Atom"]=2;
+tokens["Atomic"]="8a67fbbb6e9dcbe57ea90164837581402d8bfebb6ca6b5a3317516926b02072f";
+tokens["8a67fbbb6e9dcbe57ea90164837581402d8bfebb6ca6b5a3317516926b02072f"]="Atomic";
+    decimals["Atomic"]=8;
+
 
 /** Searching for new deposits
  * @param {Object} trx - transaction object
