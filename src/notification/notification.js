@@ -27,7 +27,7 @@ module.exports.notification = (userId, amount) => {
       channel.assertQueue(queue, {
         durable: false
       });
-      channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
+//      channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
 
       console.log(" [x] Deposit Notification Sent %s", msg[0]);
     });
