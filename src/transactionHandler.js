@@ -75,7 +75,7 @@ module.exports.transactionHandler = async trx => {
             console.log("waiting");    
             console.log(tokenType);    
             console.log(amount/exp);    
-          await checkOutput(toAddress, amount, txid, inputAddress);
+          await checkOutput(toAddress, amount/exp, txid, inputAddress);
         }
       }
     }
