@@ -87,8 +87,12 @@ module.exports.transactionHandler = async trx => {
 };
 
 const checkOutput = async (toAddress, amount, txid, inputAddress) => {
-  console.log("Checking if toAddress includes in db: ", toAddress);
-  let toAddressIncludes;
+
+ // zap 
+ console.log("Checking if toAddress included in db: ", toAddress);
+ // zap
+ 
+ let toAddressIncludes;
 
   try {
     toAddressIncludes = await getDepositsTable(toAddress);
