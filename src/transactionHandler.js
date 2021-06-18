@@ -97,7 +97,7 @@ const checkOutput = async (toAddress, amount, txid, inputAddress) => {
   try {
     toAddressIncludes = await getDepositsTable(toAddress);
   } catch (err) {
-    console.log("toAddress doesn't includes: ", toAddress);
+    console.log("toAddress does not include: ", toAddress);
     return;
   }
 
