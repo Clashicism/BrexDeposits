@@ -116,8 +116,13 @@ const checkOutput = async (toAddress, amount, txid, inputAddress) => {
     if (toAddressIncludes.Item.userId === process.env.BOT_ID) {
       console.log("match");
       await updateEscrowSession(toAddressIncludes.Item.userId, amount);
+
+     //    } else if (toAddressIncludes.Item.userId === "c8947a3c68dfa4c1c4f5112132b6518aff9b9aa42d823780f52b06c2faf7005e") {
+  //    console.log("match");
+    //  await updateEscrowSession(toAddressIncludes.Item.userId, amount, "cyfrog");
+
     } else {
-      console.log("mismatch");
+console.log("mismatch");
       await updateSession(toAddressIncludes.Item.userId, txid, amount);
       // Send notification to Telegram
       notification(toAddressIncludes.Item.userId, amount);
@@ -142,8 +147,12 @@ const updateSession = async (userId, trx, amount) => {
 };
 
 const updateEscrowSession = async (userId, amount) => {
+// const updateEscrowSession = async (userId, amount, tokenName) => {
   const session = await getSession(userId);
 
+ // KeyValuePairs = join (pairs,'&');
+// for each pair (@pairs) join key,value,'='
+ 
   // Update Session
   session.wallet.honkPoints = sum(session.wallet.honkPoints, amount);
   session.totalTokensReceived = sum(session.totalTokensReceived, amount);
